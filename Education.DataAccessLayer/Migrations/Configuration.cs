@@ -1,5 +1,7 @@
 namespace Education.DataAccessLayer.Migrations
 {
+    using Education.DataAccessLayer.Models.RoleModels;
+    using Education.DataAccessLayer.Models.UserModels;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -12,12 +14,14 @@ namespace Education.DataAccessLayer.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Education.DataAccessLayer.Context.EducationContext context)
+        protected override void Seed(Education.DataAccessLayer.Context.EducationContext db)
         {
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            db.Roles.Add(new UserRole { Description = "admin" });
+            db.Users.Add(new User { Login = "Sergey", Gender = "M", Password = "Pass", PhoneNumber = "+375291638636", Email = "serdanilovich@mail.ru", Name = "Sergey"});
+            db.CategoryOfSkills.Add(new Models.SkillModels.CategoryOfSkill { CategoryId = 1, Description = "Programming" })
+            db.Skills.Add(new Models.SkillModels.Skill { Id = 1, CategoryId = 1, Description = ".NET skill",Name = ".NET"});
+            db.SaveChanges();
         }
     }
 }

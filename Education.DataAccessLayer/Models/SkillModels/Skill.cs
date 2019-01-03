@@ -14,6 +14,6 @@ namespace Education.DataAccessLayer.Models.SkillModels
         public int CategoryId { get; set; }
         public virtual CategoryOfSkill CategoryOfSkill { get; set; }
         public LevelOfSkill LevelOfSkill { get; set; } = LevelOfSkill.L1;
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

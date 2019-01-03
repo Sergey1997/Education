@@ -15,9 +15,13 @@ namespace Aggregator.DataAccess.ModelConfigurations
             ToTable("Users");
             HasKey(p => p.Id);
             Property(p => p.Id).HasColumnName("id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(p => p.UserName).HasColumnName("user_name").IsRequired();
-            Property(p => p.Email).HasColumnName("email").IsRequired();
+            Property(p => p.Login).HasColumnName("login").IsRequired();
+            Property(p => p.Password).HasColumnName("password").IsRequired();
             Property(p => p.PhoneNumber).HasColumnName("phone_number").IsRequired();
+            Property(p => p.Email).HasColumnName("email").IsRequired();
+            Property(p => p.Gender).HasColumnName("gender").IsRequired();
+            Property(p => p.DateOfCreation).HasColumnName("create_date").IsRequired();
+
         }
     }
 }

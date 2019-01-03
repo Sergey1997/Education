@@ -5,12 +5,10 @@ using System.Web;
 
 namespace Education.DataAccessLayer.Models.SkillModels
 {
-    public enum LevelOfSkill
+    public class LevelOfSkill
     {
-        L1 = 1,
-        l2,
-        L3,
-        L4,
-        L5
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public virtual ICollection<Skill> Skills { get; set; }
     }
 }
